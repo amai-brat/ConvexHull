@@ -1,4 +1,4 @@
-namespace GrahamAlgorithm;
+namespace UsedObjects;
 
 public struct CartesianPoint : IPoint
 {
@@ -33,5 +33,9 @@ public struct CartesianPoint : IPoint
             ? Math.Atan2(Y, X) + 2 * Math.PI 
             : Math.Atan2(Y,X);
         return new Tuple<double, double>(radius, phi);
+    }
+    public override string ToString()
+    {
+        return $"X: {X}, Y: {Y}";
     }
 }

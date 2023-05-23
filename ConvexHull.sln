@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# 
+#
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{9401183C-81F0-413F-BD05-400F7E77AE25}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrahamAlgorithm", "GrahamAlgorithm\GrahamAlgorithm.csproj", "{E57C9E56-E1E2-4541-A14B-2A32DD820B2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsedObjects", "UsedObjects\UsedObjects.csproj", "{3D39E1B9-F1B8-476B-8A00-74D47A737883}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JarvisAlgorithm", "JarvisAlgorithm\JarvisAlgorithm.csproj", "{F10B189E-EAF7-407D-B665-F201091AFB75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,5 +27,13 @@ Global
 		{E57C9E56-E1E2-4541-A14B-2A32DD820B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E57C9E56-E1E2-4541-A14B-2A32DD820B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E57C9E56-E1E2-4541-A14B-2A32DD820B2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D39E1B9-F1B8-476B-8A00-74D47A737883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D39E1B9-F1B8-476B-8A00-74D47A737883}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D39E1B9-F1B8-476B-8A00-74D47A737883}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D39E1B9-F1B8-476B-8A00-74D47A737883}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F10B189E-EAF7-407D-B665-F201091AFB75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F10B189E-EAF7-407D-B665-F201091AFB75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F10B189E-EAF7-407D-B665-F201091AFB75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F10B189E-EAF7-407D-B665-F201091AFB75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

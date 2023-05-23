@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GrahamAlgorithm\GrahamAlgorithm.csproj" />
+    <ProjectReference Include="..\JarvisAlgorithm\JarvisAlgorithm.csproj" />
   </ItemGroup>
   
 </Project>

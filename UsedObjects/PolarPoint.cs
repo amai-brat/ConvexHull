@@ -1,4 +1,4 @@
-namespace GrahamAlgorithm;
+namespace UsedObjects;
 
 public struct PolarPoint : IPoint
 {
@@ -33,4 +33,9 @@ public struct PolarPoint : IPoint
 
     public Tuple<double, double> ToPolar() =>
         new(Radius, RadianAngle);
+
+    public override string ToString()
+    {
+        return $"Radius: {Radius}, Angle: {RadianAngle}";
+    }
 }

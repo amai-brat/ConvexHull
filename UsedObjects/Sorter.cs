@@ -1,4 +1,4 @@
-namespace GrahamAlgorithm;
+namespace UsedObjects;
 
 public static class Sorter
 {
@@ -36,26 +36,30 @@ public static class Sorter
     }
 }
 
-public class CartesianPointsComparerByPolar : IComparer<CartesianPoint>
+public class CartesianPointsComparerByPolarCoordinates : IComparer<CartesianPoint>
 {
-    public PolarPoint BasePoint { get; set; }
+    public PolarPoint BasePointInPolar { get; set; }
+    public CartesianPoint BasePointInCartesian { get; set; }
 
-    public CartesianPointsComparerByPolar(CartesianPoint basePoint)
+    public CartesianPointsComparerByPolarCoordinates(CartesianPoint basePoint)
     {
         var tmp = basePoint.ToPolar();
-        BasePoint = new PolarPoint(tmp.Item1, tmp.Item2);
+        BasePointInPolar = new PolarPoint(tmp.Item1, tmp.Item2);
+        BasePointInCartesian = basePoint;
     }
     public int Compare(CartesianPoint x, CartesianPoint y)
     {
-        var tmp = x.ToPolar();
-        var xPolar = new PolarPoint(tmp.Item1,
-            (tmp.Item2 > BasePoint.RadianAngle)
-                ? tmp.Item2 - BasePoint.RadianAngle
-                : 2 * Math.PI - BasePoint.RadianAngle + tmp.Item2);
-        tmp = y.ToPolar();
-        var yPolar = new PolarPoint(tmp.Item1, (tmp.Item2 > BasePoint.RadianAngle)
-            ? tmp.Item2 - BasePoint.RadianAngle
-            : 2 * Math.PI - BasePoint.RadianAngle + tmp.Item2);
+        var dx = x.X - BasePointInCartesian.X;
+        var dy = x.Y - BasePointInCartesian.Y;
+        var radius = Math.Sqrt(dx*dx + dy*dy);
+        var xPolar = new PolarPoint(radius, 
+            Math.Atan2(dy, dx) < 0 ? 2 * Math.PI + Math.Atan2(dy, dx) : Math.Atan2(dy,dx));
+        
+        dx = y.X - BasePointInCartesian.X;
+        dy = y.Y - BasePointInCartesian.Y;
+        radius = Math.Sqrt(dx*dx + dy*dy);
+        var yPolar = new PolarPoint(radius, 
+            Math.Atan2(dy, dx) < 0 ? 2 * Math.PI + Math.Atan2(dy, dx) : Math.Atan2(dy,dx));
         
         var angleComparison = xPolar.RadianAngle.CompareTo(yPolar.RadianAngle);
         return angleComparison != 0 ? angleComparison : xPolar.Radius.CompareTo(yPolar.Radius);

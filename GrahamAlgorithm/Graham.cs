@@ -1,8 +1,9 @@
 using System.Diagnostics;
+using UsedObjects;
 
 namespace GrahamAlgorithm;
 
-public class Graham
+public class Graham : IConvexHullAlgorithm
 {
     public static CartesianPoint[] GetRandomPoints(int n, int rangeX, int rangeY)
     {
@@ -19,7 +20,7 @@ public class Graham
     public static long GrahamScan_Stack(CartesianPoint[] points, Stack<CartesianPoint> resultStack)
     {
         var basePoint = points.MinBy(point => (point.Y, point.X));
-        Sorter.ShakerSort(points, new CartesianPointsComparerByPolar(basePoint));
+        Sorter.ShakerSort(points, new CartesianPointsComparerByPolarCoordinates(basePoint));
 
         var stopWatch = new Stopwatch();
         stopWatch.Start();
@@ -42,7 +43,7 @@ public class Graham
     public static long GrahamScan_List(CartesianPoint[] points, List<CartesianPoint> resultConvexHull)
     {
         var basePoint = points.MinBy(point => point.Y);
-        Sorter.ShakerSort(points, new CartesianPointsComparerByPolar(basePoint));
+        Sorter.ShakerSort(points, new CartesianPointsComparerByPolarCoordinates(basePoint));
 
         var stopWatch = new Stopwatch();
         stopWatch.Start();
@@ -62,7 +63,7 @@ public class Graham
     public static long GrahamScam_LinkedList(CartesianPoint[] points, DoublyLinkedList<CartesianPoint> resultConvexHull)
     {
         var basePoint = points.MinBy(point => point.Y);
-        Sorter.ShakerSort(points, new CartesianPointsComparerByPolar(basePoint));
+        Sorter.ShakerSort(points, new CartesianPointsComparerByPolarCoordinates(basePoint));
 
         var stopWatch = new Stopwatch();
         stopWatch.Start();
@@ -94,5 +95,12 @@ public class Graham
     private static double Orientation(CartesianPoint p1, CartesianPoint p2, CartesianPoint p3)
     {
         return (p2.X - p1.X) * (p3.Y - p1.Y) - (p3.X - p1.X) * (p2.Y - p1.Y);
+    }
+
+    public IEnumerable<CartesianPoint> GetConvexHull(CartesianPoint[] points)
+    {
+        var result = new List<CartesianPoint>();
+        GrahamScan_List(points, result);
+        return result;
     }
 }

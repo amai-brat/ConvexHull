@@ -1,4 +1,4 @@
-namespace GrahamAlgorithm;
+namespace UsedObjects;
 public interface IPoint
 {
     void Add(IPoint other);
