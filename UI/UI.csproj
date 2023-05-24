@@ -26,8 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DivideAndConquerAlgorithm\DivideAndConquerAlgorithm.csproj" />
     <ProjectReference Include="..\GrahamAlgorithm\GrahamAlgorithm.csproj" />
     <ProjectReference Include="..\JarvisAlgorithm\JarvisAlgorithm.csproj" />
+    <ProjectReference Include="..\QuickHullAlgorithm\QuickHullAlgorithm.csproj" />
   </ItemGroup>
   
 </Project>

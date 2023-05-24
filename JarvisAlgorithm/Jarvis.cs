@@ -29,7 +29,6 @@ public class Jarvis : IConvexHullAlgorithm
             p = q;
             
         } while (p != Array.IndexOf(points, convexHull[0]));
-        Console.WriteLine($"{convexHull[0]} {convexHull[^1]}");
         return convexHull;
     }
     private static double Orientation(CartesianPoint p1, CartesianPoint p2, CartesianPoint p3)

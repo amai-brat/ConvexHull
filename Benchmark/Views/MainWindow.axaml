@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Benchmark.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:oxy="clr-namespace:OxyPlot.Avalonia;assembly=OxyPlot.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Benchmark.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Benchmark">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    <Grid>
+        <TextBlock Text="FAPAH"></TextBlock>
+        <oxy:Plot Title="Fapah"
+                  IsLegendVisible="True">
+            
+            <oxy:Plot.Legends>
+                <oxy:Legend LegendTitle="Legend" LegendFontSize="20" LegendPosition="TopLeft"/>
+            </oxy:Plot.Legends>
+            <oxy:Plot.Series>
+                <oxy:LineSeries Title="Graham"
+                                DataFieldX="N"
+                                DataFieldY="Graham"
+                                Items="{Binding Measurements}"
+                                StrokeThickness="2" Color="Blue" />
+                <oxy:LineSeries Title="Jarvis"
+                                DataFieldX="N"
+                                DataFieldY="Jarvis"
+                                Items="{Binding Measurements}"
+                                StrokeThickness="2" Color="Red" /> 
+                <oxy:LineSeries Title="DivideAndConquer"
+                                DataFieldX="N"
+                                DataFieldY="DivideAndConquer"
+                                Items="{Binding Measurements}"
+                                StrokeThickness="2" Color="Purple" />
+                <oxy:LineSeries Title="QuickHull"
+                                DataFieldX="N"
+                                DataFieldY="QuickHull"
+                                Items="{Binding Measurements}"
+                                StrokeThickness="2" Color="Orange" />
+            </oxy:Plot.Series>
+        </oxy:Plot>
+    </Grid>
+
+</Window>

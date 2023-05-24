@@ -9,7 +9,7 @@ public class Graham : IConvexHullAlgorithm
     {
         var points = new CartesianPoint[n];
         var rnd = new Random();
-        for (var i = 0; i < 20; i++)
+        for (var i = 0; i < n; i++)
         {
             points[i] = new CartesianPoint(rnd.Next(-rangeX, rangeX), rnd.Next(-rangeY, rangeY));
         }
@@ -43,7 +43,7 @@ public class Graham : IConvexHullAlgorithm
     public static long GrahamScan_List(CartesianPoint[] points, List<CartesianPoint> resultConvexHull)
     {
         var basePoint = points.MinBy(point => point.Y);
-        Sorter.ShakerSort(points, new CartesianPointsComparerByPolarCoordinates(basePoint));
+        Array.Sort(points, new CartesianPointsComparerByPolarCoordinates(basePoint));
 
         var stopWatch = new Stopwatch();
         stopWatch.Start();

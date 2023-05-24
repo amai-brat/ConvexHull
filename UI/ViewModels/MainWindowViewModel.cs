@@ -4,8 +4,10 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
 using Avalonia.Media;
+using DivideAndConquerAlgorithm;
 using GrahamAlgorithm;
 using JarvisAlgorithm;
+using QuickHullAlgorithm;
 using UsedObjects;
 
 namespace UI.ViewModels;
@@ -19,7 +21,9 @@ public class MainWindowViewModel : ViewModelBase
         DrawPoints(canvas, points);
         var graham = new Graham();
         var jarvis = new Jarvis();
-        DrawLines(canvas, jarvis.GetConvexHull(points).ToList());
+        var divide = new DivideAndConquer();
+        var quick = new QuickHull();
+        DrawLines(canvas, divide.GetConvexHull(points).ToList());
     }
 
     private void DrawLines(Canvas canvas, List<CartesianPoint> convexHull)
@@ -57,8 +61,8 @@ public class MainWindowViewModel : ViewModelBase
         {
             var ellipse = new Ellipse()
             {
-                Width = 10,
-                Height = 10,
+                Width = 5,
+                Height = 5,
                 Fill = Brushes.Black,
                 ContextFlyout = new Flyout(){Content = $"{point.X} {point.Y}"}
             };
